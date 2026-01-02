@@ -1,0 +1,85 @@
+/** Texts && Fonts */
+
+.exampleText {
+    color: blue; /* Sets the text colour */
+    font-family: 'Courier New', Courier, monospace; /* Sets the font type */
+    font-size: large; /* sets the size of the text */
+    font-weight: 100; /* sets the thickness of the font */
+    text-align: center; /* Aligns text horizontally */ 
+    text-decoration: dashed; /* Used mostly for underlying text or removing i.e. removing the underline of hypelinks */
+    line-height: normal; /* Sets the space between the different lines of text */
+    letter-spacing: normal; /* sets the space between the different letters */
+    text-transform: capitalize; /* Changes text capitalizeation */
+}
+
+/* The Box Model - Sizing && Spacing */
+
+.exampleBox {
+    width: auto; /* Sets the exact width of a box */
+    height: auto; /* Sets the exact height of a box */
+    max-width: fit-content; /* Sets the max size a box can grow too */
+    max-height: fit-content; /* Also sets the max size a box can grow too */
+    margin: auto; /* Space outside the box, pushes other elements away */
+    padding: 0%; /* Space inside the box, between the content and border */
+    border: 0cap; /* The line around the box */
+    border-radius: 0%; /* The line around the box */
+    border-width: 0cap; /*  */
+    border-style: dashed; /* How the border looks, dashed, dotted, solid etc */
+    border-color: aliceblue; /* Colour of the border */
+    box-sizing: border-box; /* Usually set to boarder-box so that padding doesnt make the box wider then what you set it. */
+}
+
+/* Backgrounds */
+
+.exampleBackground {
+    background-color: aliceblue; /* Sets a solid background colour */
+    background-image: none; /* Sets a picture as the background */
+    background-size: auto; /* Controls how the image fits i.e. cover or contain */
+    background-position: 0%; /* Alignment of the background image */
+    background-repeat: repeat-x; /* If the image tiles or not */
+}
+
+/* Layout - Moving things around */
+
+.exampleLayout {
+    display: block; /* Determines how the element behaves */
+    /* block: Takes full width and starts a new line */
+    /* inline-block: Sits on the same line but allows you to set width and height */
+    /* none: hides the element completely */
+    /* flex: Enables CSS flexbox, see below */
+    /* grid: Enables CSS grid, see below */
+    position: absolute; /* Removes an elemtn from normal flow or pins it */
+    /* relative: nromal spot but allows offsets */
+    /* absoloute: positioned strictly relative to its nearest "positioined" parent */
+    /* fixed: Stuck to the screen/ Doesnt scroll */
+    /* sticky: scrolls until it hits a specific point, then sticks. */
+    z-index: 5; /* Controls the stack order (Which element is on top of another) Higher number = on top */
+    overflow: scroll; /* What happens if content is too big for the box (e.g. hidden, scroll, auto) */
+}
+
+/* Flexbox (Modern layout) */
+
+.exampleFlexbox {
+    flex-direction: column; /* Row (Side by side) or column (Stacked) */
+    justify-content: center; /* Hozitonal alignment (e.g. centre, space-between etc) */
+    align-items: center; /* Vertical alignment */
+    flex-wrap: wrap; /* Whether items force onto a new line if they run out of space */
+    gap: inherit; /* The space between flex items */
+}
+
+/* Grid (2D layout) */
+
+.exampleGrid {
+    grid-template-columns: auto; /* How many columns and their size */
+    grid-template-rows: auto; /* Defines row height */
+    gap: inherit; /* Space between grid cells */
+}
+
+/* Visual effects */
+
+.exampleVisuals {
+    opacity: 1; /* Transparancy (0 is invisible and 1 is visable) */
+    box-shadow: none; /* Adds a drop shadow to the box */
+    cursor: crosshair; /* Changes the mouse cursor (e.g. point for links/buttons) */
+    transition: all; /* Smooths out changes when you hover */
+}
