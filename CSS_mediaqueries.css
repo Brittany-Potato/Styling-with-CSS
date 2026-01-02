@@ -1,0 +1,112 @@
+/* Think of media quries as an if statement for CSS. It tells the browser 
+"If the screen is this size (or has these features), apply these specific CSS rules" */
+
+/** Basic Syntax */
+
+@media media-type and (media-feature) {
+    /* CSS rules go here */
+    body {
+        background-color: aliceblue;
+    }
+}
+
+/** Media types - The target */
+
+@media all {
+
+} /* Default, used for all devices */
+
+@media screen {
+
+} /* Used for computer screens, tablets and phones */
+
+@media print {
+
+} /* Used when users try print the page (e.g. hiding navigation bars on paper) */
+
+/** Media features - Conditions */
+
+@media media-type and (width) {
+
+} /*? Width or height */
+/* width: the width of the viewpoint / visble area */
+/* height: the height of the viewpoint / visable area */
+/* min-width/min-height: this and larger (Standard for mobile first design) */
+/* max-width/max-height: this and smaller (standard for desktop-first design) */
+
+@media media-type and (orientation:landscape) {
+
+} /* landscape/portrait: greater than the height/width */
+
+@media media-type and (resolution) {
+
+} /* Checks pixel density (e.g. 2dppx for high-rez screens */
+
+@media media-type and (hover) {
+
+} /*? Input Mechanism (touch vs mouse) */
+/* hover: hover - The device has a cursor */
+/* hover: none - The device cannot hover i.e. touchscreen */
+/* pointer: coarse - The pointer is inaccurate i.e. finger/touch */
+/* pointer: fine - The pointer is accurate i.e. mouse/stylus */
+
+/** Logical operators  */
+
+/* and - Both conditions must be true */
+@media screen and (min-width: 600px) {
+
+}
+
+/* , - Acrts like OR. Either condition can be true */
+@media (max-width: 600px), (orintation: portrait) {
+
+}
+
+/* not - Inverts the query (Apply if this is NOT true */
+@media not all and (monochrome) {
+
+}
+
+/** The 'New" range syntax (Modern CSS)  */
+
+/* Old way: */
+@media (min-width: 600px) {
+
+}
+/* New way: */
+@media (width >= 600px) {
+
+}
+
+/* Old way: (Between two sizes) */
+@media (min-width: 600px) and (max-width: 1000px) {
+
+}
+/* New way: (Between two sizes) */
+@media (600px <= width <= 1000px) {
+
+}
+
+/** User preference (Accessibility & themes) */
+/* You can style based on the users system settings */
+
+/* prefers-color-scheme: Detects light mode or dark mode. */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black; color: white;
+    }
+}
+
+/* prefers-reduced-motion: Detects if the user has requests less animation (For motion sickness) */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none; transition: none;
+    }
+}
+
+/** Common breakpoints */
+
+/* Mobile (Small): max-width: 600px; (Or width < 600px) */
+/* Tablet (Medium): min-width: 601px and max-width: 1024; */
+/* Desktop (large): min-width: 1025px; */
+/* Large screens: min-width: 1440px; */
