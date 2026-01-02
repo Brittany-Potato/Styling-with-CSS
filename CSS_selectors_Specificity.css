@@ -1,0 +1,115 @@
+/* Who to apply styles too */
+
+/** Basic selectors */
+
+/* Universal selector: Targets everything */
+* {
+    box-sizing: border-box;
+}
+
+/* Type selector: Targets the HTML tag directly */
+h1 {
+    color: red;
+}
+
+/* Class selector: Tagrets elements with specific class attributes */
+.btn {
+    background-color: blue;
+}
+
+/* ID selector: Targets a single element with a specific ID */
+#header {
+    height: 50px;
+}
+
+/* Attribute selector: Targets elements with a specific selector */
+input[type="text"] {
+    border: 1px solid gray;
+}
+
+/** Combinators (Relationships) */
+/* How to target elements based on their parents or neighbours */
+
+/* Descendant Selector (Space): Targets something inside another element (at any level) */
+.container p {
+
+} /* Any paragraph inside the .container, even if its nested deep */
+
+/* Child selector: Targets only the direct children */
+.container > p {
+
+} /* Only paragraphs directly inside the .container, not grandchildren */
+
+/* Adjacent sibling: Targets the element immediately after */
+h1 + p {
+
+} /* Targets the first paragraph that comes directly after h1 */
+
+/* General sibling: Targets all elements that follow */
+h1 ~ p {
+
+} /* Targets every paragraph that comes after h1 */
+
+/** Psuedo-Classes (Parts) */
+/* Targeting elements based on what the user is doing or the element's status */
+
+.example:hover {
+    /* When the mouse is over the element */
+}
+
+.example:focus {
+    /* When clicked into (Like a text input) */
+}
+
+.example:active {
+    /* The moment it is being clicked (held down) */
+}
+
+.example:visited {
+    /* A link that has already been clicked */
+}
+
+.example:first-child {
+    /* first/last-child, the first or last item in a parent */
+}
+
+.example:nth-child(n) {
+    /* Targets a specific number (e.g. :nth-child(2) is the second item */
+    /* Pro tip: :nth-child(odd) and :nth-child(even) is great for stripped tables */
+}
+
+.example:not() {
+    /* Excludes specific elements */
+}
+.example:not(.disabled) {
+
+}
+
+/** Pseudo-Elements (Parts) */
+/* Styling parts of an element, or inserting content */
+
+.example::before {
+    /* Inserts content before the element's actual content */
+}
+
+.example::after {
+    /* Inserts content after the element's actual content */
+}
+
+.example::first-letter {
+    /* Styles just the first letter (like a drop cap) */
+}
+
+.example::placeholder {
+    /* Styles the gray text inside an input field */
+}
+
+/** Specificity (The "Scoreboard") */
+/* If two CSS rules conflict, the browser uses a scoring system to decide which one wins. 
+It is often calculated as a 3-column score: (ID, Class, Type) */
+
+/* 1. !important: Overrides EVERYTHING, not recommended */
+/* 2. inline styles: e.g. style="color: red" Score = 1,0,0,0 */
+/* 3. IDs: (#navbar) Score = 0,1,0,0 */
+/* 4. Classes/Attributes/Pseudo-Classes: (.btn, [type="text"], :hover) Score = 0,0,1,0 */
+/* 5. Elements/Pseudo-Elements: (div, h1, ::before) Score = 0,0,0,1 */
