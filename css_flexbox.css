@@ -1,0 +1,57 @@
+/* Flexbox is a very important tool for modern web design, 
+controling the alignment and distribution of space between items in an interface. */
+
+/** The container (Parent) */   
+/* These properties go in the wrapper element (e.g. <div class="container"> to control the children inside */
+
+.exampleFlexContainer {
+    display: flex; /* The on switch, Turns the element into a flex container. */
+    flex-direction: ; /* Which way do the items flow */
+    /* row (Default): Left to right */
+    /* column: Top to bottom */
+    /* row-reverse: Right to left */
+    /* column-reverse: Bottom to top */
+    justify-content: ; /* Main axis alignment (Horizontal if direction is row) */
+    /* flex-start: Packs items to the start */
+    /* flex-end: Packs items to the end */
+    /* center: Centers items */
+    /* space-between: First item at start, last item at end, equal space between */
+    /* space-around: Equal space around every item */
+    /* space-evenly: Equal empty space between items and edges */
+    align-items: ; /* Cross axis alignment */
+    /* stretch (default): Items stretch to fil the container height */
+    /* flex-start: Aligns to the top */
+    /* flex-end: Aligns to the bottom */
+    /* center: Centers vertically */
+    /* baseline: A;igns text baselines */
+    flex-wrap: ; /* What happens if there isnt enough room? */
+    /* nowrap (Default): Squishes items to fit on one line */
+    /* wrap: Items drop to the next line */
+    gap: ; /* Adds space between items e.g. gap: 20px; */
+}
+
+/** The items (The children) */
+/* These properties go on the specif elements inside the flex container if you want to override the standard rules.   */
+
+.exampleFlexItems {
+    flex-grow: ; /* Should this item grow to fill empty space */
+    /* 0 (Default): Don't grow */
+    /* 1: Grow to fill available space. (If two items have 1, they split the space equally) */
+    flex-shrink: ; /* Should this item shrink if there isn't enough space? */
+    /* 1 (Default): Yes shrink */
+    /* 0: No, keep my size no matter what (Good for icons) */
+    flex-basis: ; /* The ideal starting size before growing or shrinking */
+    /* auto, 200px, 50% */
+    align-self: ; /* Overrides the parent's align-items for just this one item */
+    /* Center, flex-end, etc */
+    order: ; /* 1 moves it tot he end; order: -1 moves it to the start */
+}
+
+/** The cheat codes (shorthand) */
+
+/* Centering a div (The holy grail) */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
