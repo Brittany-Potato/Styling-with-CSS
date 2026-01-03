@@ -1,0 +1,83 @@
+/* Grid is the most powerful layout system in css */
+
+/** The container (The parent) */
+
+.exampleParentContainer {
+    display: grid; /* The on switch */
+    grid-template-columns: ; /* Defines the width of your columns */
+    /* 100px 200px: Two columns with specific pixels */
+    /* 1fr 1fr: Two columns, equal width (Taking up available space) */
+    /* 1fr 2fr: Second column is twice as wide as the first */
+    /* repeat(3, 1fr: shortcut for 1fr 1fr 1fr (3 equal columns)) */
+    /* repeat(auto-fit, minmax(200px, 1fr)) The magic responsive line, 
+    creates as many columns as can fit on the screen, but never smaller than 200px */
+    grid-template-rows: ; /* Defines the height of your rows */
+    /* auto: Height adapts to the content (most common) */
+    /* 100px: Fixed height */
+    gap: ; /* Space between rows and columns */
+    grid-template-areas: ; /* A visual way to name sections */
+}
+
+.gridTemplate {
+    grid-template-areas: 
+    "header header"
+    "sidebar content"
+    "footer footer";
+}
+
+/** Alignment (On the container) */
+/* How the items sit inside their grid cells */
+
+.exampleAlignment {
+    justify-items: ; /* Horizontal alignment inside the cell */
+    /* start, end, center, stretch (Default) */
+    align-items: ; /* Vertical alignmet in the cell */
+    /* start, end, center, stretch (Default) */
+    place-items: ; /* shorthand for both e.g. place-items: center; */
+}
+
+/** The items (The children) */
+/* These rules dictate how much space a specific element takes up */
+
+.exampleChildren {
+    /* Spanning columns */
+    grid-column: 1 / 3; /* Starts at grid line 1. ends at grid line 3 (spans 2 columns) */
+    grid-column: span 2; /* Easier syntax. Spans two columns from where it naturally sits */
+    grid-column: 1 / -1; /* Spans from the first line to the very last line (full width) */
+    /* Spanning rows */
+    grid-row: 1 / 3; /* Spans 2 rows */
+    grid-row: span 2; /* Spans 2 rows */
+    /* Assigning to areas */
+    grid-area: header; /* This tells element to go into the area named "header" defined in the parent */
+}
+
+/** The special units and functions */
+/* Grid introduces new math to CSS */
+
+/* fr (Fraction): A unit of free space. 1fr means "one share of the leftovers" */
+/* minmax (min, max): Sets a boundary 
+minmax(11px, auto): Atleast 100px, but can grow if content is bigger*/
+/* repeat(count, size): Repeats a pattern */
+
+/** Cheatsheet examples */
+
+/* A standard layout (Sidebar + Content) */
+.containerOne {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Fixed sidebar, fluid content */
+    gap: 20px;
+}
+
+/* The "Instagram" Gallery (Responsive) */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+/* Centering EVERYTHING */
+.containerTwo {
+    display: grid;
+    place-items: center; /* Horizontally and vertically centers */
+    height: 100vh;
+}
