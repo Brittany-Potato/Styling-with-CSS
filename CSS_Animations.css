@@ -1,0 +1,102 @@
+/* Transitions (Simple A -> B) and Keyframe animations (Complex) */
+
+/** Transitions (Simple) */
+/* Use this when you want a smooth change from one state to another (Like when hovering over a button). 
+Requires a trigger e.g. :hover or adding a class */
+
+.exampleTransitions {
+    transition-property: all; /* What do you want to smooth out? e.g. background-color, transform or all */
+    transition-duration: 0ms; /* How long it takes */
+    transition-timing-function: linear; /* The speed curve */
+    /* linear: Same speed start to end */
+    /* ease: slow start, fast middle, slow end - Default */
+    /* ease-in: slow start */
+    /* ease-out: slow end */
+    transition-delay: 0ms; /* Wait before starting */
+}
+
+/* shorthand */
+/* Property | duration | timing-function | delay */
+
+.btn {
+    background-color: blue;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: red; /* Slowly turns red over 0.3s */
+}
+
+/** Keyframes (complex) */
+/* Use this when you want an element to move on its own, loop forever or have multiple stages (A -> B -> C) */
+
+/* Stope 1: Create the "scene" */
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+/* You can also use from and to instead of 0% and 100% */
+
+/* Step 2: Assign it to an element */
+
+.ball {
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+/** Animation properties */
+
+.exampleAnimations {
+    animation-name: ; /* The name you defined in your keyframes */
+    animation-duration: ; /* How long one cycle takes */
+    animation-iteration-count: ; /* How many times it plays */
+    /* infinate: Loops forever */
+    /* 1,3,2.5 etc */
+    animation-direction: ; 
+    /* normal: 0% -> 100% (Reset to 0) */
+    /* reverse: 100% -> 0% */
+    /* alternate: 0% -> 100% -> 0% (Great for pulsing/bouncing) */
+    animation-delay: ; /* Wait before startng */
+    animation-fill-mode: ; /* What happens after the animation ends */
+    /* none: Returns to original style */
+    /* forwards: stays in the exact state of the last frame */
+    /* backwards: Jumps to the first frame during the delay */
+    animation-play-state: ; /* Running or paused (Can be changed with JavaScript or Hover) */
+}
+
+/* Shorthand */
+
+/* name | duration | timing-function | delay | count | direction | fill-mode */
+.box {
+    animation: slide-in 3s ease-in 1s infinite alternate forwards;
+}
+
+/** Transforms (The "Movement" engine) */
+
+/* While you can animate width or margin, it is slow for the browser. 
+You should use transform for movement because it is hardware accelerated (smoother) */
+
+.exampleTransform {
+    translate(x, y): ; /* Moves element. translateX(50px), translateY(-10px) */
+    scale(x, y): ; /* Resizes element. scale(1.5) (50% bigger), scale(0.5) (50% smaller) */
+    rotate(angle): ; /* spins element. rotate(90deg), rotate(1turn) */
+    skew(sngle): ; /* Tilts element. skewX(20deg) */
+}
+
+.example:hover {
+    /* Moves up slightly and grow shadow */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/** Performance (Golden rule) */
+
+/* Browsers struggle to animate layout properties (like width, height, padding, top, left) 
+because the have to recalculate the whole page structure. */
+
+/* For buttery smooth 60fps animations, try to only animate these two properties */
+/* 1. transform (move, scale, rotate) */
+/* 2. opacity (fade in/out) */
