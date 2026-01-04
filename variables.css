@@ -1,0 +1,90 @@
+/* Defining CSS variables to use them globally */
+
+/** Defining variables (The syntax) */
+/* Variables must start with (--). They are case sensitive (--MainColor is different to --maincolor) */
+
+/* Global variables */
+/* We usually declare these in root, which is the heighest level of your HTML document/repo */
+
+:root {
+    /* colors */
+    --primary-color: pink;
+    --secondary-color: blue;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+
+    /* Spacing and sizes */
+    --spacing-sm: 8px;
+    --spacing-md:16px;
+    --radius: 4px;
+}
+
+/* Local variables */
+/* You can define a variable inside a class. But it only works inside that element (And the children) */
+
+.card {
+    --card-padding: 20px; /* Only works inside the .card */
+}
+
+/** Using variables */
+/* Use the var() function to grab the value */
+
+button {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+}
+
+/** Fallbacks (Safety net) */
+/* What happens if the variable is missing or broken? Define a backup value after a comma */
+.box {
+    background-color: var(--accent-color, red);
+}
+
+/** Super powers Theming (Dark mode) */
+
+/* 1. Define default (Light mode) */
+:root {
+    --bg-color:#ffffff;
+    --text-color: #000000;
+}
+
+/* Define overrides (Dark mode) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --text-color: #ffffff;
+    }
+}
+
+/* Write CSS once */
+body {
+    background-color: var(--bg-color); /* Will automatically switch */
+    color: var(--text-color);
+}
+
+/** Calculations with variables */
+
+:root {
+    --base-size: 10px;
+}
+
+.container {
+    font-size: var(--base-size); /* 10px */
+    padding: calc(var(--base-size) * 2 ); /* 20px */
+    width: calc(100% - var(--base-size));
+}
+
+/** Interactions with JavaScript */
+/* CSS variables are 'live' in the browser and can be instantly changed with JS */
+
+/* Get the root element */
+/* (In your JS file) */
+/* const root = document.documentElement; */
+
+/* change the --primary-color to red instantly */
+/* root.style.setProperty('--primary-color', 'red'; */
+
+/* Get a variable value */
+/* const color = getComputedStyle(root).getPropertyValue('--primary-color'); */
